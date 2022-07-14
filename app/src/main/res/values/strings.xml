@@ -2,6 +2,7 @@
     <string name="app_name">WeatherApp</string>
     <string name="temp_text_api">Test Weather Api</string>
     <string name="temp_text_bttn">Get</string>
+    <string name="temp_text_data">20.07.2022 12:00</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_blank_fragment">TEST blank fragment</string>
