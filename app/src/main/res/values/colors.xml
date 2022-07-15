@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     //my colors
+    <color name="my_supergray">#2D4059</color>
+    <color name="my_supergray_transparent">#662D4059</color>
     <color name="my_light_superblue">#3EC1D3</color>
     <color name="my_light_superblue_transparent">#663EC1D3</color>
     <color name="my_beige">#F6F7D7</color>
@@ -16,4 +18,5 @@
     <color name="my_orange_transparent">#66FF9A00</color>
     <color name="my_pink">#FF165D</color>
     <color name="my_pink_transparent">#66FF165D</color>
+    <color name="my_limon">#FEFE22</color>
 </resources>

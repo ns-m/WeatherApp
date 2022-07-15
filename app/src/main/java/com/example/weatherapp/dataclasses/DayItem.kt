@@ -7,13 +7,11 @@ data class DayItem(
     val conditionIcon: String,
     val currentTemprC: String,
     val currentTemprF: String,
+    val currentWindSpKm: String,
+    val currentWindSpMl: String,
     val forecastMaxTemprC: String,
     val forecastMaxTemprF: String,
     val forecastMinTemprC: String,
     val forecastMinTemprF: String,
-    val forecastAvgTemprC: String,
-    val forecastAvgTemprF: String,
-    val forecastWindSpKm: String,
-    val currentWindSpMl: String,
     val hours: String
 )
