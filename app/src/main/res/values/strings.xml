@@ -11,7 +11,11 @@
     <string name="temp_text_wind">10.0 km/h - 6.0 ml/h</string>
     <string name="temp_text_maxmin_temp_c">35°C/12°C</string>
     <string name="temp_text_maxmin_temp_f">85°F/61°F</string>
+    <string name="temp_text_hours">Hours</string>
+    <string name="temp_text_days">Days</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="test_blank_fragment">TEST blank fragment</string>
+    <string name="test_blank_fragment_hours">TEST blank fragment Hours</string>
+    <string name="test_blank_fragment_days">TEST blank fragment Days</string>
 </resources>
