@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.FragmentActivity
@@ -21,9 +22,11 @@ class MainFragment : Fragment() {
         HoursFragment.newInstance(),
         DaysFragment.newInstance()
     )
+    /*private val txHours = getString(R.string.temp_text_hours)
+    private val txDays = getString(R.string.temp_text_days)*/
     private val bttnList = listOf(
-        getString(R.string.temp_text_hours),
-        getString(R.string.temp_text_days)
+        "Hours",
+        "Days"
     )
 
     override fun onCreateView(
@@ -51,7 +54,7 @@ class MainFragment : Fragment() {
     private fun permissionListener(){
 
         pLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()){
-
+            Toast.makeText(activity, "Permission is $it", Toast.LENGTH_LONG).show()
         }
     }
 
