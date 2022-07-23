@@ -2,7 +2,8 @@
     <string name="app_name">WeatherApp</string>
     <string name="temp_text_api">Test Weather Api</string>
     <string name="temp_text_bttn">Get</string>
-    <string name="temp_text_data">20.07.2022 12:00</string>
+    <string name="temp_text_date_time">20.07.2022 12:00</string>
+    <string name="temp_text_date">20.07.2022</string>
     <string name="temp_text_city">Gotem City</string>
     <string name="temp_text_temp_c">20°C</string>
     <string name="temp_text_slash">/</string>
