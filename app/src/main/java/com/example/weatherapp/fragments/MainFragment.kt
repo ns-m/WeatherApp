@@ -14,10 +14,12 @@ import androidx.fragment.app.FragmentActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.weatherapp.R
 import com.example.weatherapp.adapters.ViewPagerAdapter
+import com.example.weatherapp.adapters.WeatherModel
 import com.example.weatherapp.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import org.json.JSONObject
+
 const val API_KEY = "95f00f8f8ffa4d1597594025221307"
 
 class MainFragment : Fragment() {
@@ -46,7 +48,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         checkPermission()
         init()
-        reguestWeatherData("Stambul")
+        requestWeatherData("Stambul")
     }
 
     private fun init() = with(binding){
@@ -71,7 +73,7 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun reguestWeatherData(city: String){
+    private fun requestWeatherData(city: String){
         val url = "https://api.weatherapi.com/v1/forecast.json?key=" +
                 API_KEY +
                 "&q=" +
@@ -80,18 +82,37 @@ class MainFragment : Fragment() {
                 "3" +
                 "&aqi=no&alerts=no"
         val queue = Volley.newRequestQueue(context)
-        val reguest = StringRequest(
+        val request = StringRequest(
             Request.Method.GET,
             url,
             {
-                result -> Log.d("MyLog", "Error: $result")
+                result -> parserWeatherData(result)
             },
             {
                 error -> Log.d("MyLog", "Error: $error")
             }
         )
 
-        queue.add(reguest)
+        queue.add(request)
+    }
+
+    private fun parserWeatherData(result: String){
+        val mainObject = JSONObject(result)
+        val item = WeatherModel(
+            mainObject.getJSONObject("current").getString("last_updated"),
+            mainObject.getJSONObject("current").getJSONObject("condition").getString("icon"),
+            mainObject.getJSONObject("location").getString("name"),
+            mainObject.getJSONObject("current").getString("temp_c"),
+            mainObject.getJSONObject("current").getString("temp_f"),
+            mainObject.getJSONObject("current").getJSONObject("condition").getString("text"),
+            mainObject.getJSONObject("current").getString("wind_kph"),
+            mainObject.getJSONObject("current").getString("wind_mph"),
+            "",
+            "",
+            "",
+            "",
+            ""
+        )
     }
 
     companion object {
