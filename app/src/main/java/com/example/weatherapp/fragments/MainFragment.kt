@@ -2,6 +2,7 @@ package com.example.weatherapp.fragments
 
 import android.Manifest
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,10 +11,14 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.FragmentActivity
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.weatherapp.R
 import com.example.weatherapp.adapters.ViewPagerAdapter
 import com.example.weatherapp.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+const val API_KEY = "95f00f8f8ffa4d1597594025221307"
 
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
@@ -41,6 +46,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         checkPermission()
         init()
+        reguestWeatherData("Stambul")
     }
 
     private fun init() = with(binding){
@@ -63,6 +69,29 @@ class MainFragment : Fragment() {
             permissionListener()
             pLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
         }
+    }
+
+    private fun reguestWeatherData(city: String){
+        val url = "https://api.weatherapi.com/v1/forecast.json?key=" +
+                API_KEY +
+                "&q=" +
+                city +
+                "&days=" +
+                "3" +
+                "&aqi=no&alerts=no"
+        val queue = Volley.newRequestQueue(context)
+        val reguest = StringRequest(
+            Request.Method.GET,
+            url,
+            {
+                result -> Log.d("MyLog", "Error: $result")
+            },
+            {
+                error -> Log.d("MyLog", "Error: $error")
+            }
+        )
+
+        queue.add(reguest)
     }
 
     companion object {
