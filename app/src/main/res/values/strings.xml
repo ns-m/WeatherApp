@@ -9,7 +9,7 @@
     <string name="temp_text_slash">/</string>
     <string name="temp_text_temp_f">70°F</string>
     <string name="temp_text_condition">Sunny</string>
-    <string name="temp_text_wind">10.0 km/h - 6.0 ml/h</string>
+    <string name="temp_text_wind">10.0km/h-6.0ml/h</string>
     <string name="temp_text_maxmin_temp_c">35°C/12°C</string>
     <string name="temp_text_maxmin_temp_f">85°F/61°F</string>
     <string name="temp_text_hours">Hours</string>
